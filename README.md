@@ -4,4 +4,4 @@ One idea I had was to create an `IOperationOptimizer` that traverses the current
 
 An example implementation fo the `IOperationOptimizer` can be found [here](./Program.cs#L19)
 
-One "downside" is that we now need to add extension for totalCount ourselves, since `[UsePaging(IncludeTotalCount = true)]` and the `Func` passed to `Connection<T>` both depend on the pagination resolver to run. I don't think of this as a loss though, since I'm not particularly fond of those approaches and would rather have a dedicated field responsible for the computation of the `totalCount` 😝
+One "downside" is that we now need to add extensions for the `totalCount` fields ourselves, since `[UsePaging(IncludeTotalCount = true)]` and the `Func` for `totalCount` resolution passed to `Connection<T>` both depend on the pagination resolver to run. I don't think of this as a loss though, since I'm not particularly fond of those approaches and would rather have a dedicated field responsible for the computation of the `totalCount` 😝
