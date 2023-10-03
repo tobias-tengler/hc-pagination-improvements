@@ -74,12 +74,12 @@ public class PaginationOperationOptimizer : IOperationOptimizer
 
     private void OptimizePagination(IOperation operation, ISelection selection, OperationOptimizerContext context)
     {
-        if (selection.SelectionSet is null || selection.Type is not IObjectType productType)
+        if (selection.SelectionSet is null || selection.Type is not IObjectType connectionType)
         {
             return;
         }
 
-        var selectionSetOnType = operation.GetSelectionSet(selection, productType);
+        var selectionSetOnType = operation.GetSelectionSet(selection, connectionType);
 
         var areNodesOrEdgesSelected = selectionSetOnType.Selections.Any(s => s.Field.Name == EdgesField || s.Field.Name == NodesField);
 
